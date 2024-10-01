@@ -37,6 +37,16 @@ contract Voting {
     }
 
     /**
+    *@dev Allows the owner to add an address to the whitelist.
+    *@param _address The address to be added to the whitelist.
+     */
+
+    function addAddressToWhitelist(address _address) public {
+        require(msg.sender == proposalAdder, "Only the administrator can add addresses to the whitelist");
+        whitelist[_address] = true;
+    }
+
+    /**
      * @dev Adds a new proposal to the proposals list.
      * @param _name Name of the new proposal.
      *
